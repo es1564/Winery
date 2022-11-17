@@ -24,8 +24,8 @@ export const Test2Screen: FC<StackScreenProps<AppStackParamList, "Test2">> = obs
   // const navigation = useNavigation()
   return (
     <Screen style={$root} preset="scroll">
-      <View style={{ marginTop:130}}>
-        <Text text="test2" />
+      <View style={{ marginTop:300 }}>
+        <Text text="test2test2" />
       </View>
     </Screen>
   )
