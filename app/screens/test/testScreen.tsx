@@ -25,14 +25,19 @@ export const TestScreen: FC<StackScreenProps<AppStackParamList, "Test">> = obser
   // const navigation = useNavigation()
   return (
     <Screen style={$root} preset="scroll">
+<<<<<<< Updated upstream
       <View style={{ marginTop:50 }}>
         <Text text="test" />
       </View>
+=======
+      <Text text="test"/>
+>>>>>>> Stashed changes
     </Screen>
   )
 })
 
 const $root: ViewStyle = {
+ marginTop: 100,
   flex: 1,
 }
 
