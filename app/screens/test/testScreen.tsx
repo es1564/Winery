@@ -1,7 +1,7 @@
 
 import React, { FC } from "react"
 import { observer } from "mobx-react-lite"
-import { ViewStyle } from "react-native"
+import { View, ViewStyle } from "react-native"
 import { StackScreenProps } from "@react-navigation/stack"
 import { AppStackParamList } from "../../navigators"
 import { Screen, Text } from "../../components"
@@ -25,7 +25,9 @@ export const TestScreen: FC<StackScreenProps<AppStackParamList, "Test">> = obser
   // const navigation = useNavigation()
   return (
     <Screen style={$root} preset="scroll">
-      <Text text="test" />
+      <View style={{ marginTop:50 }}>
+        <Text text="test" />
+      </View>
     </Screen>
   )
 })
