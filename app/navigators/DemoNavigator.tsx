@@ -9,12 +9,14 @@ import { DemoCommunityScreen, DemoShowroomScreen, DemoDebugScreen } from "../scr
 import { DemoPodcastListScreen } from "../screens/DemoPodcastListScreen"
 import { colors, spacing, typography } from "../theme"
 import { AppStackParamList, AppStackScreenProps } from "./AppNavigator"
+import { TestScreen } from "../screens"
 
 export type DemoTabParamList = {
   DemoCommunity: undefined
   DemoShowroom: undefined
   DemoDebug: undefined
   DemoPodcastList: undefined
+  Test: undefined
 }
 
 /**
@@ -79,6 +81,16 @@ export function DemoNavigator() {
           tabBarIcon: ({ focused }) => <Icon icon="podcast" color={focused && colors.tint} />,
         }}
       />
+
+      <Tab.Screen
+              name="Test"
+              component={TestScreen}
+              options={{
+                tabBarLabel: translate("demoNavigator.TestTab"),
+                tabBarIcon: ({ focused }) => <Icon icon="debug" color={focused && colors.tint} />,
+              }}
+            />
+
     </Tab.Navigator>
   )
 }
