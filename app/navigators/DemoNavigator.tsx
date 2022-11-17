@@ -17,6 +17,7 @@ export type DemoTabParamList = {
   DemoDebug: undefined
   DemoPodcastList: undefined
   Test: undefined
+  DemoTest2: undefined
 }
 
 /**
@@ -83,13 +84,22 @@ export function DemoNavigator() {
       />
 
       <Tab.Screen
-              name="Test"
-              component={TestScreen}
-              options={{
-                tabBarLabel: translate("demoNavigator.TestTab"),
-                tabBarIcon: ({ focused }) => <Icon icon="debug" color={focused && colors.tint} />,
-              }}
-            />
+        name="Test"
+        component={TestScreen}
+        options={{
+          tabBarLabel: translate("demoNavigator.TestTab"),
+          tabBarIcon: ({ focused }) => <Icon icon="debug" color={focused && colors.tint} />,
+        }}
+      />
+
+      <Tab.Screen
+        name="DemoTest2"
+        component={Test2Screen}
+        options={{
+          tabBarLabel: translate("demoNavigator.test2Tab"),
+          tabBarIcon: ({ focused }) => <Icon icon="podcast" color={focused && colors.tint} />,
+        }}
+      />
 
     </Tab.Navigator>
   )
