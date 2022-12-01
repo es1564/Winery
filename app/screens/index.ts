@@ -9,3 +9,4 @@ export * from "./ErrorScreen/ErrorBoundary"
 // export other screens here
 export * from "./testScreen"
 export * from "./test-2/test-2Screen"
+export * from "./test3Screen"
