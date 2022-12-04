@@ -1,4 +1,5 @@
 import { observer } from "mobx-react-lite"
+
 import React, { useEffect, useMemo } from "react"
 import {
   AccessibilityProps,
@@ -31,8 +32,8 @@ import { openLinkInBrowser } from "../utils/open-link-in-browser"
 
 const ICON_SIZE = 14
 
-const rnrImage1 = require("../../assets/images/joss .png")
-const rnrImage2 = require("../../assets/images/joss .png")
+const rnrImage1 = require("../../assets/images/josswine.png")
+const rnrImage2 = require("../../assets/images/josswine.png")
 const rnrImage3 = require("../../assets/images/rnr-image-3.png")
 const rnrImages = [rnrImage1, rnrImage2, rnrImage3]
 
@@ -43,6 +44,30 @@ export const TestScreen = observer(function TestScreen(
 
   const [refreshing, setRefreshing] = React.useState(false)
   const [isLoading, setIsLoading] = React.useState(false)
+
+  const fetch = require('node-fetch');
+
+const encodedParams = new URLSearchParams();
+encodedParams.append("url", "https://storage.googleapis.com/api4ai-static/samples/wine-1.jpg");
+
+const url = 'https://wine-recognition2.p.rapidapi.com/v1/results?n=10';
+
+const options = {
+  method: 'POST',
+  headers: {
+    'content-type': 'application/x-www-form-urlencoded',
+    'X-RapidAPI-Key': 'SIGN-UP-FOR-KEY',
+    'X-RapidAPI-Host': 'wine-recognition2.p.rapidapi.com'
+  },
+  body: encodedParams
+};
+
+fetch(url, options)
+	.then(res => res.json())
+	.then(json => console.log(json))
+	.catch(err => console.error('error:' + err));
+
+  
 
   // initially, kick off a background refresh without the refreshing UI
   useEffect(() => {
