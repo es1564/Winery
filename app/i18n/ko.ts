@@ -125,7 +125,7 @@ const ko: Translations = {
   },
 
   TestScreen: {
-    title: "와인 상세정보",
+    title: "와인 리스트",
     onlyFavorites: "즐겨찾는 와인만 보기",
     favoriteButton: "즐겨찾기",
     unfavoriteButton: "즐겨찾기 해제",

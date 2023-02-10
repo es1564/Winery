@@ -30,11 +30,12 @@ import { delay } from "../utils/delay"
 import { openLinkInBrowser } from "../utils/open-link-in-browser"
 
 const ICON_SIZE = 14
-
-const rnrImage1 = require("../../assets/images/joss .png")
-const rnrImage2 = require("../../assets/images/joss .png")
+const rnrImage1 = require("../../assets/images/josswine.png")
+const rnrImage2 = require("../../assets/images/josswine.png")
 const rnrImage3 = require("../../assets/images/rnr-image-3.png")
 const rnrImages = [rnrImage1, rnrImage2, rnrImage3]
+
+
 
 export const Test3Screen = observer(function Test3Screen(
   _props: DemoTabScreenProps<"DemoPodcastList">,
