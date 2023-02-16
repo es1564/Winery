@@ -28,6 +28,32 @@ import { DemoTabScreenProps } from "../navigators/DemoNavigator"
 import { colors, spacing } from "../theme"
 import { delay } from "../utils/delay"
 import { openLinkInBrowser } from "../utils/open-link-in-browser"
+import { parse } from 'csv-parse';
+import * as fs from "fs";
+import * as path from "path";
+//WINE_ID,WINE_NM,WINE_AREA_NM,WINE_CTGRY,WINE_PRC
+type RT_WINE_INFO_202112 = {
+  WINE_ID: string
+  WINE_NM: string
+  WINE_AREA_NM: string
+  WINE_CTGRY: string
+  WINE_PRC: string
+};
+
+(() => {
+  const csvFilePath = path.resolve(__dirname, '../services/RT_WINE_INFO_202112.csv');
+  const headers = ['WINE_ID', 'WINE_NM', 'WINE_AREA_NM', 'WINE_CTGRY', 'WINE_PRC'];
+  const fileContent = fs.readFileSync(csvFilePath, { encoding: 'utf-8' });
+  parse(fileContent, { columns: headers, skip_empty_lines: true }, (err, records) => {
+    if (err) {
+      console.error(err);
+      return;
+    }
+    console.log(records);
+  });
+})();
+
+
 
 const ICON_SIZE = 14
 const rnrImage1 = require("../../assets/images/josswine.png")
@@ -63,6 +89,7 @@ export const Test3Screen = observer(function Test3Screen(
     setRefreshing(false)
   }
 
+  
   return (
     <Screen preset="fixed" safeAreaEdges={["top"]} contentContainerStyle={$screenContentContainer}>
       <FlatList<Episode>
@@ -71,6 +98,9 @@ export const Test3Screen = observer(function Test3Screen(
         contentContainerStyle={$flatListContentContainer}
         refreshing={refreshing}
         onRefresh={manualRefresh}
+
+   
+   
         ListEmptyComponent={
           isLoading ? (
             <ActivityIndicator />
